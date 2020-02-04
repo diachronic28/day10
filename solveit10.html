@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>solveit10</title>
+</head>
+<body>
+    <center>
+
+
+
+
+
+
+    </center>
+    <center>
+        <h1 id='hasil'></h1>
+        <button onclick="reset()">reset</button>
+    </center>
+        
+
+
+    
+</body>
+<script>
+    class Soal{
+        constructor(soal,pilihan,jawaban,kelompoknama){
+            this.soal=soal
+            this.pilihan=pilihan
+            this.jawaban=jawaban
+            this.kelompoknama=kelompoknama
+        }
+    }
+    var datasoal=[
+        new Soal('siapa presiden ke 3 ?',['bj.habibie','soekarno','abdurahwan wahid','jokowi'],0,'president'),
+        new Soal('siapa penyanyi lagu baby ?',['justin timberlake','justin bieber','iwan false','udin'],1,'penyanyi'),
+        new Soal('siapa penemu gunting kuku ?',['si irza','mas irza','masa sih','iya sih'],0,'guntingkuku'),
+        new Soal('siapa hokage disni ?',['naruto','sasuke','goku','luffy'],3,'hokage')
+        
+        
+        
+    ]
+    const printsoal=()=>{
+        var output=``
+        for(var i=0;i<datasoal.length;i++){
+            var pilihan=''
+            for (var j=0;j<datasoal[i].pilihan.length;j++){
+                pilihan+=`<input type="radio" name=${datasoal[i].kelompoknama} value=${j}>${datasoal[i].pilihan[j]}`
+            }
+            output+=`<p>No.${i+1} ${datasoal[i].soal}</p><br>`
+            output+=pilihan
+        }
+        output+=`<br><button onclick='onclickjawab()'>submit</button>`
+        document.getElementsByTagName('center')[0].innerHTML=output
+    }
+    const onclickjawab=()=>{
+        var skor=0
+        var tambahsoal=100/datasoal.length
+        var hitungan=0
+        for(var i=0;i<datasoal.length;i++){
+            for(var j=0;j<document.getElementsByName(datasoal[i].kelompoknama).length;j++){
+                if(document.getElementsByName(datasoal[i].kelompoknama)[j].checked){
+                   if(document.getElementsByName(datasoal[i].kelompoknama)[j].value==datasoal[i].jawaban){
+                        skor+=tambahsoal
+                   }
+                   hitungan++
+                }
+            }
+        }
+        if(hitungan==datasoal.length){
+            document.getElementById('hasil').innerHTML=`selamat anda mendapatkan point ${skor}`
+        }else{
+            document.getElementById('hasil').innerHTML=`belum selesai`
+        }
+    }
+    printsoal()
+    const reset=()=>{
+        document.getElementById('hasil').innerHTML=``
+        printsoal()
+    }
+</script>
+</html>

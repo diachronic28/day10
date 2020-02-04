@@ -7,7 +7,35 @@
     <title>Solveit8</title>
 </head>
 <body>
-    <p>Ketik kalimat di bawah ini</p>
+    <p>Ketik kalimat:</p>
+        <p><input type="text" id="kalimat"></p>
+    <p>Karakter yang dicari:</p>
+        <p><input type="text" id="cari"></p>
+    <p><button onclick="carikarakter()">Cari!</button></p>
+        <p id="hasil"></p>
+   
+<script>
+    function carikarakter() {
+        var string=document.getElementById("kalimat").value
+        var huruf=document.getElementById("cari").value  
+    function hitungkarakter(str, letter) {
+        var hitunghuruf=0
+            for (i=0;i<string.length; i++) {
+                if (string.charAt(i)==letter) {
+                            hitunghuruf+=1
+                }
+            }
+                return hitunghuruf
+            }
+        var hasilnya=hitungkarakter(string,huruf)
+            document.getElementById("hasil").innerHTML = `Jumlah huruf '${huruf}' sebanyak ${hasilnya} buah`
+        }
+</script>
+
+
+
+            
+        
     
 </body>
 </html>

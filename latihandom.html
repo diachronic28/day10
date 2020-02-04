@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,td,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            margin: 0 auto;
+            text-align: center;   
+        }
+        
+    </style> 
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Kegiatan</th>
+                <th>Gambar</th>
+                <th>Hari</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td><input type="text" id='kegiatan' placeholder="nama kegiatan"></td>
+                <td><input type="text" id='gambar' placeholder="Gambar"></td>
+                <td>
+                    <select id="hari">
+                        <option hidden value="">pilih hari ..</option>
+                        <option value="senin">senin</option>
+                        <option value="selasa">selasa</option>
+                        <option value="rabu">rabu</option>
+                        <option value="kamis">kamis</option>
+                        <option value="jumat">jumat</option>
+                        <option value="sabtu">sabtu</option>
+                        <option value="minggu">minggu</option>
+                    </select>
+                </td>
+                <td><button onclick="inputdataonClick()">input data</button></td>
+            </tr>
+        </tfoot>
+    </table>
+   
+</body>
+<script src="./latihandom.js"></script>
+</html>
